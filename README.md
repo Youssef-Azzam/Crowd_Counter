@@ -54,22 +54,19 @@ The system is built around modular, clean Python files designed for readability 
 ![Architecture Diagram](docs/architecture.png)
 
 
-🧰 Module Breakdown
-
-```markdown
 ### 🧰 Modules
 
-- app.py  
+- **app.py**  
   🎬 Main entry point. Loads video stream, runs detection, tracking, and counting loop.  
-- detector.py  
+- **detector.py**  
   🔍 Wrapper around Ultralytics YOLOv8 to detect people in frames.  
-- tracker.py  
+- **tracker.py**  
   🎯 Handles object tracking using OpenCV’s CSRT tracker, assigning unique IDs.  
-- people_counter/  
+- **people_counter/**  
   📦 Sub-package that organizes business logic:  
-    - counter.py → counts people across frames  
-    - utils.py → helper functions (drawing boxes, logging, etc.)  
-    - tracker_config.yaml → tuning parameters  
-- requirements.txt  
+  - **counter.py** → counts people across frames  
+  - **utils.py** → helper functions (drawing boxes, logging, etc.)  
+  - **tracker_config.yaml** → tuning parameters  
+- **requirements.txt**  
   📄 All pinned dependencies required for successful setup.
-
+  
