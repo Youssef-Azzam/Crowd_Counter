@@ -159,7 +159,6 @@ The system offers two interfaces: a user-friendly Streamlit app and a flexible c
 #### Screenshots
 - ![UI/UX](docs/screenshots/ui.png) 
 - ![Sidebar](docs/screenshots/sidebar.png)  
-- ![Live View](docs/screenshots/live_view.png)  
 
 ### CLI
 
@@ -212,7 +211,6 @@ The demo highlights real-time detection and tracking using sample mall-traffic f
 
 ### Visuals
 - ![Live View](docs/screenshots/live_view.png): Live detection overlay  
-- ![Sidebar](docs/screenshots/sidebar.png): UI sidebar controls  
 
 ---
 
@@ -231,8 +229,6 @@ The demo highlights real-time detection and tracking using sample mall-traffic f
 - **IoU Matching**: Re-associates detections with existing trackers  
 - **Streamlit**: Provides an interactive browser-based UI without front-end code  
 
-### Flow Diagram
-![Architecture Diagram](docs/architecture.png)  
 
 ---
 
