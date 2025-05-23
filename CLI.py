@@ -1,4 +1,4 @@
-'''import sys
+import sys
 from people_counter.counter import VideoCounter
 
 if __name__ == '__main__':
@@ -15,9 +15,7 @@ if __name__ == '__main__':
         max_misses=5
     )
     total = vc.run(visualize=True)
-    print(f"Final total unique people counted: {total}")'''
+    print(f"Final total unique people counted: {total}")
 
-import cv2
-print("cv2 version:", cv2.__version__)
-print("Has CSRT factory?:", hasattr(cv2, "TrackerCSRT_create"))
+
 

@@ -18,9 +18,7 @@ max_misses  = st.sidebar.number_input("Max tracker misses", 1, 30, 5)
 video_file = st.file_uploader("Upload a video file", type=["mp4","avi","mov"])
 use_cam    = st.checkbox("Use Webcam (camera 0)")
 
-# Only start processing when we have a source
 if video_file or use_cam:
-    # Prepare source path or device index
     if use_cam:
         source = 0
     else:
@@ -58,26 +56,21 @@ if video_file or use_cam:
         t_ms = cap.get(cv2.CAP_PROP_POS_MSEC)
         records.append({"time_sec": t_ms / 1000.0, "count": total})
 
-        # Overlay
         cv2.putText(frame, f"Frame {frame_idx}/{total_frames}", (10,30),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
         cv2.putText(frame, f"Total Unique People: {total}", (10,60),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,255,0), 2)
 
-        # Show in Streamlit
         frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         video_pl.image(frame_rgb, channels="RGB", use_container_width=True)
         metric_pl.metric("Live Unique Count", total)
 
-        # Exit on keypress (works in local Python, Streamlit won’t catch it—
-        # to stop, simply refresh or close the app).
         if cv2.waitKey(1) & 0xFF == ord("q"):
             break
 
     cap.release()
     cv2.destroyAllWindows()
 
-    # Final table
     df = pd.DataFrame(records)
     st.markdown("### 📊 People Count Over Time")
     st.dataframe(df)

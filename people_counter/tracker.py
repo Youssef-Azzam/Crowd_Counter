@@ -8,7 +8,6 @@ def make_csrt_tracker():
     """
     if hasattr(cv2, "TrackerCSRT_create"):
         return cv2.TrackerCSRT_create()
-    # Some very old builds exposed it as a class instead of factory:
     if hasattr(cv2, "TrackerCSRT"):
         return cv2.TrackerCSRT()
     raise RuntimeError(
@@ -55,7 +54,6 @@ class PeopleTracker:
                         })
                         unmatched.remove(best_i)
 
-            # Drop trackers that have missed too many frames
             if rec['misses'] > self.max_misses:
                 del self.trackers[tid]
 
