@@ -249,9 +249,9 @@ automated-crowd-counter/
 ├── docs/
 │   ├── architecture.png # System architecture diagram
 │   ├── screenshots/
-│   │   ├── live_view.png
-│   │   └── sidebar.png
-│   └── demo.gif         # Demo animation
+│       ├── live_view.png
+│       └── sidebar.png
+│   
 └── README.md            # Project documentation
 ```
 
