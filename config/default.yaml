@@ -1,0 +1,42 @@
+detector:
+  model_path: yolo11n.pt
+  confidence: 0.5
+  iou: 0.7
+  image_size: 640
+  device:
+  classes: [0]
+
+tracker:
+  backend: bytetrack
+  iou_threshold: 0.3
+  max_misses: 5
+  ultralytics_tracker: bytetrack.yaml
+  min_box_area: 64
+
+analytics:
+  lines:
+    - name: main
+      start: [100, 300]
+      end: [900, 300]
+      in_direction: negative_to_positive
+      debounce_frames: 12
+  zones: []
+  keep_trajectory_points: 300
+  overcrowding_threshold:
+
+output:
+  directory: outputs
+  save_frame_metrics_csv: true
+  save_events_csv: true
+  save_trajectories_csv: true
+  save_summary_json: true
+  save_annotated_video: false
+  annotated_video_name: annotated_output.mp4
+
+runtime:
+  frame_skip: 1
+  max_frames:
+  display_width: 960
+  privacy_blur: false
+  draw_trajectories: true
+  show_fps: true
