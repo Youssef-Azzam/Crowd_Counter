@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import cv2
 import numpy as np
@@ -61,7 +61,7 @@ def draw_overlay(
 
     if runtime_config.draw_trajectories and trajectory_points:
         for points in trajectory_points.values():
-            for p1, p2 in zip(points, points[1:]):
+            for p1, p2 in zip(points, points[1:], strict=False):
                 cv2.line(canvas, p1, p2, (255, 120, 0), 2)
 
     _draw_metrics(canvas, analytics, runtime_config)
@@ -110,3 +110,4 @@ def _draw_metrics(frame, analytics: FrameAnalytics, runtime_config: RuntimeConfi
             1,
         )
         y += 28
+

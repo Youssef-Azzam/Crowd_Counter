@@ -10,7 +10,6 @@ import streamlit as st
 from people_counter.config_runtime import LineConfig, load_config
 from people_counter.counter import VideoCounter
 
-
 st.set_page_config(page_title="Crowd Counter", layout="wide")
 st.title("Crowd Counter")
 

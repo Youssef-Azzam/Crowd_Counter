@@ -1,8 +1,7 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from collections import defaultdict, deque
 from statistics import mean
-from typing import Deque
 
 from .config_runtime import AnalyticsConfig, LineConfig
 from .geometry import point_in_polygon, point_side
@@ -19,7 +18,7 @@ class AnalyticsEngine:
         self.peak_occupancy = 0
         self.events: list[CrossingEvent] = []
         self.frame_metrics: list[dict] = []
-        self.trajectories: dict[int, Deque[dict]] = defaultdict(
+        self.trajectories: dict[int, deque[dict]] = defaultdict(
             lambda: deque(maxlen=max(1, self.config.keep_trajectory_points))
         )
         self._last_side: dict[tuple[int, str], float] = {}
@@ -178,3 +177,4 @@ def _transition(previous_side: float, current_side: float) -> str | None:
     if previous_side > 0 > current_side:
         return "positive_to_negative"
     return None
+
